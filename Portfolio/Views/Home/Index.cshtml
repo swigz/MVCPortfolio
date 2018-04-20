@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model  Portfolio.Models.Forms.EmailFormModel
+
+<section id="areaMain" class="mainAreaContainer">
+    <div class="mainAreaContent">
+        <img class="img-responsive roundImg" src="~/Content/Images/profile.jpg" />
+        <h1>Daniel Ferreira</h1>
+        <h2>Software Developer</h2>
+        <h3>Personal Portfolio</h3>
+    </div>
+</section>
+<section class="aboutAreaContainer" id="areaAbout">
+    <div class="aboutAreaContent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    
+                </div>
+                <div class="col-md-6">
+                    <h2>About me</h2>
+                    <p>Born in Ovar, graduated in Coimbra in Instituto Superior de Engenharia de Coimbra.</p>
+                    <p>Web developer with .NET experience amongst many other skills.</p>
+                    <p>To check more details about my life and work follow the button down below.</p>
+                    <div class="type-3">
+                        <a href="" class="btn btn-3">
+                            <span class="txt">More Details</span>
+                            <span class="round"><i class="fa fa-chevron-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="contactAreaContainer" id="areaContact">
+    <div class="contactAreaContent">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Get in touch:</h2>
+                @using (Html.BeginForm("SendMessage", "Home", FormMethod.Post, new {enctype = "multipart/form-data" }))
+                {
+                <div class="formContainer">
+                    <div class="group">
+                        <input type="text" name="Name" required />
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Name</label>
+                    </div>
+                    <div class="group">
+                        <input type="text" name="Email" required />
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Email</label>
+                    </div>
+                    <div class="group">
+                        <textarea name="Message" required></textarea>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Message</label>
+                    </div>
+                    <button type="submit" class="btn-3">
+                        Send
+                    </button>
+                </div>
+                }
+            </div>
+            <div class="col-md-6">
+                <h2>Find or follow me around:</h2>
+                <div class="row" style="margin-top: 50px;">
+                    <div class="col-md-6">
+                        <a target="_blank" href="https://www.facebook.com/daniel.ferreira.33633"> 
+                            <div>
+                                <img class="logoImages" src="~/Content/Images/fb_logo.png"/>
+                                <p>
+                                    <label class="logoThumbText">Facebook</label>
+                                </p>
+                            </div>
+                        </a>
+                      
+                    </div>
+                    <div class="col-md-6">
+                        <a target="_blank" href="https://www.instagram.com/daniel_saferreira/">
+                            <div>
+                                <img class="logoImages" src="~/Content/Images/ig_logo.png" />
+                                <p>
+                                    <label class="logoThumbText">Instagram</label>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a target="_blank" href="https://github.com/swigz/">
+                            <div>
+                                <img class="logoImages" src="~/Content/Images/git_logo.png"/>
+                                <p>
+                                    <label class="logoThumbText">GitHub</label>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a target="_blank" href="https://www.linkedin.com/in/daniel-ferreira-516769139/">
+                            <div>
+                                <img class="logoImages" src="~/Content/Images/li_logo.png"/>
+                                <p>
+                                    <label class="logoThumbText">Linked In</label>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script>
+        $('a[href^="#area"]').on('click', function(event) {
+            var target = $(this.getAttribute('href'));
+            if( target.length ) {
+                event.preventDefault();
+                $('html, body').stop().animate({
+                    scrollTop: target.offset().top -50
+                }, 500);
+            }
+        });
+    </script>
+}
