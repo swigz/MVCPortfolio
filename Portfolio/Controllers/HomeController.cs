@@ -19,7 +19,7 @@ namespace Portfolio.Controllers
 
             var fromAddress = new MailAddress("automailingportfolio@gmail.com", "Daniel Ferreira");
             var toAddress = new MailAddress("daniel.sa.ferreira.7@gmail.com", "Daniel Ferreira");
-            const string fromPassword = "portfolio05";
+            string fromPassword = System.Configuration.ConfigurationManager.AppSettings["autoMailPass"];
             const string subject = "Portfolio contact";
             string body = "Nome: " + model.Name + " || Email: " + model.Email + " || Message: " + model.Message;
 
